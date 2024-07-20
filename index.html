@@ -103,10 +103,20 @@
         .copyright {
             text-align: center;
         }
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 30px;
+        }
         .about-image {
-            float: right;
-            margin: 0 0 20px 20px;
-            max-width: 300px;
+            flex: 0 0 200px; /* Reduced from 300px to 200px */
+            max-width: 200px; /* Set a max-width to match the flex basis */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
         }
 
         @media (max-width: 768px) {
@@ -127,10 +137,15 @@
                 margin-left: 0;
             }
             .about-image {
-                float: none;
-                display: block;
+                flex: 0 0 200px;
+                max-width: 200px;
+                height: auto;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-image {
                 margin: 0 auto 20px;
-                max-width: 100%;
             }
         }
     </style>
@@ -163,21 +178,25 @@
 
     <section id="about" class="content">
         <div class="container">
-            <img src="linda.png" alt="Dr. Linda Nguyen" class="about-image">
-            <h2>About Dr. Linda Nguyen</h2>
-            <h3>Physical Therapy, Telehealth Physical Therapy</h3>
-            <h4>Dr. Linda Nguyen, PT, DPT</h4>
-            <p><em>Owner │ Running Specialist │ Functional Dry Needling Certified │ Sports and Orthopedic Physical Therapist</em></p>
-            
-            <p>Dr. Linda Nguyen, PT, DPT, is a dedicated physical therapist with a strong academic background and a passion for empowering individuals to achieve optimal physical well-being. Graduating with honors in 2021 from the University of Colorado Anschutz Medical Campus with a Doctor of Physical Therapy degree, she built upon her foundation in Integrative Biology and Psychology from the University of Colorado at Denver, where she also graduated with honors in 2018.</p>
-            
-            <p>As a first-generation Colorado native, Dr. Nguyen values diligence and consistency instilled in her from assisting her immigrant parents in managing their small business. She is committed to implementing evidence-based practices, specializing in orthopedic conditions and employing a holistic approach integrating movement, exercise, and manual therapy techniques.</p>
-            
-            <p>Dr. Nguyen has worked with a diverse range of clients, from professional athletes including NFL athletes to aspiring Olympians, leveraging her expertise to optimize performance and recovery. Beyond the clinic, Dr. Nguyen actively engages with the community through her passion for running, serving as the Founder, President, and Captain of the Cross Country club at the University of Colorado, fostering a sense of community and promoting an active lifestyle. She participates in various physical activities such as running marathons, biking, playing tennis, swimming, playing pickleball, and weightlifting, embodying the values of health and fitness she advocates for.</p>
-            
-            <p>Eager to contribute to her community's well-being, Dr. Nguyen is dedicated to guiding individuals towards independence and optimal physical function, prioritizing patient education and establishing meaningful connections. Her dedication to physical therapy and commitment to patient wellness make her a valuable asset to those seeking personalized and effective care.</p>
-            
-            <p><strong>Call or Text Dr. Linda to Book: 720-772-9090</strong></p>
+            <div class="about-content">
+                <img src="linda.png" alt="Dr. Linda Nguyen" class="about-image">
+                <div class="about-text">
+                    <h2>About Dr. Linda Nguyen</h2>
+                    <h3>Physical Therapy, Telehealth Physical Therapy</h3>
+                    <h4>Dr. Linda Nguyen, PT, DPT</h4>
+                    <p><em>Owner │ Running Specialist │ Functional Dry Needling Certified │ Sports and Orthopedic Physical Therapist</em></p>
+                    
+                    <p>Dr. Linda Nguyen, PT, DPT, is a dedicated physical therapist with a strong academic background and a passion for empowering individuals to achieve optimal physical well-being. Graduating with honors in 2021 from the University of Colorado Anschutz Medical Campus with a Doctor of Physical Therapy degree, she built upon her foundation in Integrative Biology and Psychology from the University of Colorado at Denver, where she also graduated with honors in 2018.</p>
+                    
+                    <p>As a first-generation Colorado native, Dr. Nguyen values diligence and consistency instilled in her from assisting her immigrant parents in managing their small business. She is committed to implementing evidence-based practices, specializing in orthopedic conditions and employing a holistic approach integrating movement, exercise, and manual therapy techniques.</p>
+                    
+                    <p>Dr. Nguyen has worked with a diverse range of clients, from professional athletes including NFL athletes to aspiring Olympians, leveraging her expertise to optimize performance and recovery. Beyond the clinic, Dr. Nguyen actively engages with the community through her passion for running, serving as the Founder, President, and Captain of the Cross Country club at the University of Colorado, fostering a sense of community and promoting an active lifestyle. She participates in various physical activities such as running marathons, biking, playing tennis, swimming, playing pickleball, and weightlifting, embodying the values of health and fitness she advocates for.</p>
+                    
+                    <p>Eager to contribute to her community's well-being, Dr. Nguyen is dedicated to guiding individuals towards independence and optimal physical function, prioritizing patient education and establishing meaningful connections. Her dedication to physical therapy and commitment to patient wellness make her a valuable asset to those seeking personalized and effective care.</p>
+                    
+                    <p><strong>Call or Text Dr. Linda to Book: 720-772-9090</strong></p>
+                </div>
+            </div>
         </div>
     </section>
 
