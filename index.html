@@ -7,34 +7,162 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #ccab44;
+            padding: 1rem;
+            color: #fff;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        header img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .company-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
             margin: 0;
-            background-color: #f0f0f0;
         }
-        .logo {
-            max-width: 300px;
-            margin-bottom: 20px;
+        nav li {
+            display: inline;
+            margin-left: 20px;
         }
-        .schedule-button {
-            background-color: #2ecc71;
-            color: white;
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+        .hero {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .content {
+            padding: 30px 0;
+            flex: 1;
+        }
+        .btn {
+            display: inline-block;
+            background: #ccab44;
+            color: #fff;
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 18px;
-            transition: background-color 0.3s;
         }
-        .schedule-button:hover {
-            background-color: #27ae60;
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            width: 100%;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-info {
+            text-align: left;
+        }
+        .copyright {
+            text-align: right;
+        }
+        .about-image {
+            float: right;
+            margin: 0 0 20px 20px;
+            max-width: 300px;
         }
     </style>
 </head>
 <body>
-    <img src="logo.png" alt="Lasting Performance and Physical Therapy Logo" class="logo">
-    <a href="https://lastingperformancept.janeapp.com" class="schedule-button">Schedule Now</a>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="logo.png" alt="Lasting Performance PT Logo">
+                    <span class="company-name">Lasting Performance and Physical Therapy</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Empowering Your Journey to Healing</h1>
+            <a href="#contact" class="btn">Schedule Now</a>
+        </div>
+    </section>
+
+    <section id="about" class="content">
+        <div class="container">
+            <img src="linda.png" alt="Dr. Linda Nguyen" class="about-image">
+            <h2>About Dr. Linda Nguyen</h2>
+            <h3>Physical Therapy, Telehealth Physical Therapy</h3>
+            <h4>Dr. Linda Nguyen, PT, DPT</h4>
+            <p><em>Owner │ Running Specialist │ Functional Dry Needling Certified │ Sports and Orthopedic Physical Therapist</em></p>
+            
+            <p>Dr. Linda Nguyen, PT, DPT, is a dedicated physical therapist with a strong academic background and a passion for empowering individuals to achieve optimal physical well-being. Graduating with honors in 2021 from the University of Colorado Anschutz Medical Campus with a Doctor of Physical Therapy degree, she built upon her foundation in Integrative Biology and Psychology from the University of Colorado at Denver, where she also graduated with honors in 2018.</p>
+            
+            <p>As a first-generation Colorado native, Dr. Nguyen values diligence and consistency instilled in her from assisting her immigrant parents in managing their small business. She is committed to implementing evidence-based practices, specializing in orthopedic conditions and employing a holistic approach integrating movement, exercise, and manual therapy techniques.</p>
+            
+            <p>Dr. Nguyen has worked with a diverse range of clients, from professional athletes including NFL athletes to aspiring Olympians, leveraging her expertise to optimize performance and recovery. Beyond the clinic, Dr. Nguyen actively engages with the community through her passion for running, serving as the Founder, President, and Captain of the Cross Country club at the University of Colorado, fostering a sense of community and promoting an active lifestyle. She participates in various physical activities such as running marathons, biking, playing tennis, swimming, playing pickleball, and weightlifting, embodying the values of health and fitness she advocates for.</p>
+            
+            <p>Eager to contribute to her community's well-being, Dr. Nguyen is dedicated to guiding individuals towards independence and optimal physical function, prioritizing patient education and establishing meaningful connections. Her dedication to physical therapy and commitment to patient wellness make her a valuable asset to those seeking personalized and effective care.</p>
+            
+            <p><strong>Call or Text Dr. Linda to Book: 720-772-9090</strong></p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p>Phone: (720) 772-9090</p>
+                    <p>Email: liindaanguyen@gmail.com</p>
+                    <p>Address: 123 Main St, Centennial, CO 80112</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 Lasting Performance and Physical Therapy. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
