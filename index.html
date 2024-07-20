@@ -16,7 +16,8 @@
             min-height: 100vh;
         }
         .container {
-            width: 80%;
+            width: 90%;
+            max-width: 1200px;
             margin: auto;
             overflow: hidden;
         }
@@ -27,28 +28,33 @@
         }
         .header-content {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
         }
         .logo-container {
             display: flex;
             align-items: center;
+            flex-grow: 1;
         }
         header img {
-            height: 50px;
-            margin-right: 10px;
+            height: 80px;
+            margin-right: 15px;
         }
         .company-name {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: bold;
+        }
+        nav {
+            margin-top: 10px;
         }
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
         }
         nav li {
-            display: inline;
             margin-left: 20px;
         }
         nav a {
@@ -87,19 +93,45 @@
         }
         .footer-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
         }
         .contact-info {
-            text-align: left;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .copyright {
-            text-align: right;
+            text-align: center;
         }
         .about-image {
             float: right;
             margin: 0 0 20px 20px;
             max-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .logo-container {
+                margin-bottom: 10px;
+            }
+            nav {
+                width: 100%;
+            }
+            nav ul {
+                justify-content: space-between;
+            }
+            nav li {
+                margin-left: 0;
+            }
+            .about-image {
+                float: none;
+                display: block;
+                margin: 0 auto 20px;
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -125,7 +157,7 @@
     <section class="hero">
         <div class="container">
             <h1>Empowering Your Journey to Healing</h1>
-            <a href="https://lastingperformancept.janeapp.com" class="btn">Schedule Now</a>
+            <a href="#contact" class="btn">Schedule Now</a>
         </div>
     </section>
 
