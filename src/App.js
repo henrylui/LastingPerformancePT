@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import backgroundImage from './background.jpg';
 import styled from 'styled-components';
-import FAQ from './FAQ';
+import FAQ from './components/FAQ';
 import Header from './Header';
 import LogoSection from './components/LogoSection';
 import HeroSection from './components/HeroSection';
