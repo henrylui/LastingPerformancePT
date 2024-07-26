@@ -1,21 +1,33 @@
-import React, { useEffect, useRef } from 'react';
-import { Link as ScrollLink } from 'react-scroll';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link as ScrollLink, Events } from 'react-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function App() {
   const heroRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.pageYOffset;
-      if (heroRef.current) {
-        heroRef.current.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-      }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+
+    // Set up react-scroll events
+    Events.scrollEvent.register('begin', function() {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register('end', function() {
+      console.log("end", arguments);
+    });
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      Events.scrollEvent.remove('begin');
+      Events.scrollEvent.remove('end');
+    };
   }, []);
 
   useEffect(() => {
@@ -53,9 +65,9 @@ function App() {
             </div>
             <nav>
               <ul>
-                <li><ScrollLink to="hero" smooth={true} duration={500}>Home</ScrollLink></li>
-                <li><ScrollLink to="about" smooth={true} duration={500}>About</ScrollLink></li>
-                <li><ScrollLink to="contact" smooth={true} duration={500}>Contact</ScrollLink></li>
+                <li><ScrollLink to="hero" smooth={true} duration={500} spy={true} activeClass="active">Home</ScrollLink></li>
+                <li><ScrollLink to="about" smooth={true} duration={500} spy={true} activeClass="active" offset={isMobile ? -50 : 0}>About</ScrollLink></li>
+                <li><ScrollLink to="contact" smooth={true} duration={500} spy={true} activeClass="active" offset={isMobile ? -50 : 0}>Contact</ScrollLink></li>
               </ul>
             </nav>
           </div>
@@ -63,7 +75,7 @@ function App() {
       </header>
 
       <section id="hero" className="hero" ref={heroRef}>
-        <div className="container">
+        <div className="hero-content">
           <h1>Empowering Your Journey to Healing</h1>
           <a href="https://lastingperformancept.janeapp.com" className="btn">Schedule Now</a>
         </div>
@@ -114,6 +126,10 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <a href="https://lastingperformancept.janeapp.com" className="fab" aria-label="Schedule Now">
+        <span>+</span>
+      </a>
     </div>
   );
 }

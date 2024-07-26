@@ -87,13 +87,17 @@ nav a:hover {
 .hero {
     background-image: url('/background.jpg');
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
     color: #fff;
     text-align: center;
-    padding: 150px 0;
+    padding: 20px;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero::before {
@@ -106,14 +110,27 @@ nav a:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero h1 {
     font-size: 2.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    position: relative;
-    z-index: 1;
+    margin-bottom: 20px;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s forwards;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .content {
@@ -238,6 +255,27 @@ footer {
     padding-top: 100px;
 }
 
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ccab44;
+  color: white;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.fab:hover {
+  background-color: #b39339;
+}
+
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -278,5 +316,33 @@ footer {
       top: auto;
       bottom: 20px;
       right: 20px;
+    }
+    .hero {
+        padding: 40px 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+    .hero-content {
+        padding: 10px;
+    }
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 769px) {
+  .fab {
+    display: none;
   }
 }
