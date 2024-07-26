@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+  }
+`;
 
 const HeaderWrapper = styled.header`
   position: fixed;
@@ -11,6 +24,7 @@ const HeaderWrapper = styled.header`
   transition: background-color 0.3s ease;
   background-color: ${props => props.isScrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent'};
   backdrop-filter: ${props => props.isScrolled ? 'blur(5px)' : 'none'};
+  width: 100%;
 `;
 
 const HeaderContent = styled.div`
@@ -20,6 +34,7 @@ const HeaderContent = styled.div`
   padding: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -39,7 +54,7 @@ const CompanyName = styled.h1`
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
   }
 `;
@@ -58,6 +73,7 @@ const NavList = styled.ul`
 
   @media (max-width: 768px) {
     justify-content: space-between;
+    width: 100%;
   }
 `;
 
@@ -110,29 +126,32 @@ const Header = () => {
   }, []);
 
   return (
-    <HeaderWrapper isScrolled={isScrolled}>
-      <HeaderContent>
-        <CompanyName>
-          Lasting Performance and Physical Therapy
-        </CompanyName>
-        <NavContainer>
-          <NavList>
-            <NavItem>
-              <NavLink to="hero" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="about" smooth={true} duration={500} spy={true} activeClass="active">About</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="faq" smooth={true} duration={500} spy={true} activeClass="active">FAQ</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="contact" smooth={true} duration={500} spy={true} activeClass="active">Contact</NavLink>
-            </NavItem>
-          </NavList>
-        </NavContainer>
-      </HeaderContent>
-    </HeaderWrapper>
+    <>
+      <GlobalStyle />
+      <HeaderWrapper isScrolled={isScrolled}>
+        <HeaderContent>
+          <CompanyName>
+            Lasting Performance and Physical Therapy
+          </CompanyName>
+          <NavContainer>
+            <NavList>
+              <NavItem>
+                <NavLink to="hero" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="about" smooth={true} duration={500} spy={true} activeClass="active">About</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="faq" smooth={true} duration={500} spy={true} activeClass="active">FAQ</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="contact" smooth={true} duration={500} spy={true} activeClass="active">Contact</NavLink>
+              </NavItem>
+            </NavList>
+          </NavContainer>
+        </HeaderContent>
+      </HeaderWrapper>
+    </>
   );
 };
 
