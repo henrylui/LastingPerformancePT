@@ -1,11 +1,21 @@
 /* src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
 body {
     font-family: 'Poppins', Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -13,15 +23,15 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 header {
     background: #ccab44;
-    padding: 1rem;
+    padding: 1rem 0;
     color: #fff;
     position: sticky;
     top: 0;
@@ -64,9 +74,8 @@ nav {
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 nav li {
@@ -90,7 +99,7 @@ nav a:hover {
     background-repeat: no-repeat;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
     position: relative;
     overflow: hidden;
     min-height: 100vh;
@@ -143,34 +152,6 @@ nav a:hover {
 .content.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-.schedule-button {
-  position: relative;
-  z-index: 100;
-  transition: all 0.3s ease;
-}
-
-.schedule-button.sticky {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
-.schedule-button .btn {
-  display: inline-block;
-  background: #ccab44;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease, transform 0.3s ease;
-  white-space: nowrap;
-}
-
-.schedule-button .btn:hover {
-  background: #b39339;
-  transform: scale(1.05);
 }
 
 .btn {
@@ -255,72 +236,79 @@ footer {
 }
 
 .fab {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ccab44;
-  color: white;
-  border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-  z-index: 1000;
-  transition: background-color 0.3s ease;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ccab44;
+    color: white;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 .fab:hover {
-  background-color: #b39339;
+    background-color: #b39339;
 }
 
 /* FAQ Styles */
 #faq {
-  background-color: #f9f9f9;
-  padding: 50px 0;
+    background-color: #f9f9f9;
+    padding: 50px 0;
 }
 
 #faq h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .faq-list {
-  max-width: 800px;
-  margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .faq-item {
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 20px;
-  margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .faq-item h3 {
-  color: #ccab44;
-  margin-bottom: 10px;
+    color: #ccab44;
+    margin-bottom: 10px;
 }
 
 .faq-item p {
-  color: #333;
-  line-height: 1.6;
+    color: #333;
+    line-height: 1.6;
 }
+
 .faq-answer ul {
     list-style-type: disc;
     padding-left: 20px;
     margin-bottom: 15px;
-  }
-  
+}
+
 .faq-answer li {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .faq-answer p {
-margin-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+/* Ensure images don't overflow their containers */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 @keyframes fadeInUp {
@@ -333,19 +321,20 @@ margin-bottom: 15px;
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
     .logo-container {
         margin-bottom: 10px;
+        text-align: center;
     }
     nav {
         width: 100%;
     }
     nav ul {
-        justify-content: space-between;
+        justify-content: center;
     }
     nav li {
-        margin-left: 0;
+        margin: 5px 10px;
     }
     .about-image {
         flex: 0 0 200px;
@@ -359,13 +348,8 @@ margin-bottom: 15px;
     .about-image {
         margin: 0 auto 20px;
     }
-    .schedule-button.sticky {
-      top: auto;
-      bottom: 20px;
-      right: 20px;
-    }
     .hero {
-        padding: 40px 20px;
+        padding: 40px 15px;
         height: auto;
         min-height: 100vh;
     }
@@ -398,7 +382,7 @@ margin-bottom: 15px;
 }
 
 @media (min-width: 769px) {
-  .fab {
-    display: none;
-  }
+    .fab {
+        display: none;
+    }
 }
