@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { formatDistanceToNow } from 'date-fns';
 
 const TestimonialSection = styled.section`
   background-color: #2a8d8d;
@@ -61,11 +62,17 @@ const ReviewerInfo = styled.div`
   margin-bottom: 0.5rem;
 `;
 
-const Avatar = styled.img`
+const Avatar = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 0.5rem;
+  background-color: #4285f4;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 `;
 
 const ReviewerName = styled.span`
@@ -100,17 +107,27 @@ const TestimonialComponent = () => {
     reviews: [
       {
         name: "Kevin L",
-        date: "1 month ago",
+        date: new Date('2024-07-19'),
         rating: 5,
-        text: "Dr. Linda Nguyen has really helped a lot during the time I've seen her. She's helped me recover from multiple issues by giving me exercises and stretches to help strengthen my body which has helped reduced issues such as lower back pain, tennis elbow, and others. Highly recommend her!",
-        avatarUrl: "/path-to-avatar.jpg",
+        text: "Dr. Linda Nguyen has really helped a lot during the time I've seen her. She's helped me recover from multiple issues by giving me exercises and stretches to help strengthen my body...",
         reviewUrl: "https://g.co/kgs/tzrBYsa"
+      },
+      {
+        name: "Nicole H",
+        date: new Date('2024-07-12'),
+        rating: 5,
+        text: "Dr. Linda Nguyen has helped improve my mobility and get rid of my back pain all together. 6 months ago I couldn’t run anymore due to back pain but since I‘ve seen Dr. Nguyen, I am now able to run and hike again. She really has changed my life...",
+        reviewUrl: "https://g.co/kgs/BxcnzHG"
       }
       // Add more reviews here
     ]
   };
 
   const renderStars = (rating) => '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+  const getInitialAvatar = (name) => {
+    return name.charAt(0).toUpperCase();
+  };
 
   return (
     <TestimonialSection>
@@ -120,7 +137,7 @@ const TestimonialComponent = () => {
         <Stars>{renderStars(reviewData.averageRating)}</Stars>
         <ReviewCount>({reviewData.totalReviews})</ReviewCount>
         <div>
-          <ReviewButton href="https://g.page/r/YOUR_GOOGLE_REVIEW_URL" target="_blank" rel="noopener noreferrer">
+          <ReviewButton href="https://www.google.com/search?client=safari&sca_esv=0dba993661c510c2&sca_upv=1&hl=en-us&sxsrf=ADLYWILbqaAqUv8H87ik2YyfFvZr2cewhA:1722034907948&q=lasting+performance+and+physical+therapy+centennial+reviews&uds=ADvngMj-y7vBN4WjOEmoytCOco0lQqOFUH2X4DFfaXB9TPPrwGI9FCJ7Ys_FTAXIqMEaesiTsTDYZWdyBQwXU9SJYQNT055fgRgkzejhB6WpQB2t5n93IAZW92x3UYqx6AiWJsoYhdQEKtgruArXW2z2uFfCL_qT79-jszpdmiYvBHSrv_-UdSX277NqHdLOTPW4a0QDzecPNjerECkigUNZp8aOi-LiJHsGR_HG_YIjIaEMrAN5IIIKHrK15yD8Am8Qh3yPsAN1iww14rGzrk3hsSis-7G4F85FhaTq1yTSH8yup4OD2uE3gMaSliqmGdAjgDLru4GwxbGTModgFFi2J16JW3XpCpApUlnJhTUTQHHLBm4QjrO4O-VNjWH2NiL6nSgyHHW8jsFhB-8Gd4oJisM4ej5lriShv8GBvqm5mRwyWNqOB4iEKo9ZWwQ-_ml9TrWLIV0ZOtGx28yU4zbyvYtBZSBjzF7TVctyPxnum_ST08pPfeg&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7ld1ub0UfdwhslqD6cnhMed9_xyx4h_ZDGAFHIFyIGuNG4AzvoiXV_AX-LAszPCmyEJnDunB1aPrH2KokxikA3lNf1Kg8BintcI4ZQV0WEv8u0boklP4bfhwECEIk8GDIVt3S6yodwvPZYSoOojo1bs7RxlG&sa=X&ictx=1&lei=2yqkZv_KOZOi0PEP2-2-sAM" target="_blank" rel="noopener noreferrer">
             Review us on Google
           </ReviewButton>
         </div>
@@ -128,9 +145,9 @@ const TestimonialComponent = () => {
       {reviewData.reviews.map((review, index) => (
         <TestimonialCard key={index}>
           <ReviewerInfo>
-            <Avatar src={review.avatarUrl} alt={`${review.name}'s avatar`} />
+            <Avatar>{getInitialAvatar(review.name)}</Avatar>
             <ReviewerName>{review.name}</ReviewerName>
-            <ReviewDate>{review.date}</ReviewDate>
+            <ReviewDate>{formatDistanceToNow(review.date, { addSuffix: true })}</ReviewDate>
           </ReviewerInfo>
           <Stars>{renderStars(review.rating)}</Stars>
           <ReviewText>{review.text}</ReviewText>
