@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link as ScrollLink, Events } from 'react-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import backgroundImage from './background.jpg';  // Import the background image
 
 function App() {
   const heroRef = useRef(null);
@@ -74,7 +75,7 @@ function App() {
         </div>
       </header>
 
-      <section id="hero" className="hero" ref={heroRef}>
+      <section id="hero" className="hero" ref={heroRef} style={{backgroundImage: `url(${backgroundImage})`}}>
         <div className="hero-content">
           <h1>Empowering Your Journey to Healing</h1>
           <a href="https://lastingperformancept.janeapp.com" className="btn">Schedule Now</a>
