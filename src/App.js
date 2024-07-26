@@ -2,12 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link as ScrollLink, Events } from 'react-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import backgroundImage from './background.jpg';
 import styled from 'styled-components';
 import FAQ from './components/FAQ';
 import Header from './Header';
 import LogoSection from './components/LogoSection';
-import HeroSection from './components/HeroSection';
 import TestimonialComponent from './components/TestimonialSection';
 
 
@@ -70,7 +68,7 @@ function App() {
       <Header />
 
 
-      <HeroSection backgroundImage={backgroundImage} heroRef={heroRef} />
+      
       
 <LogoSection />
 
