@@ -8,7 +8,7 @@ import FAQ from './components/FAQ';
 import Header from './Header';
 import LogoSection from './components/LogoSection';
 import HeroSection from './components/HeroSection';
-
+import TestimonialComponent from './components/TestimonialSection';
 
 
 const MainContent = styled.main`
@@ -96,6 +96,8 @@ function App() {
 </section>
 
 <FAQ />  {/* Add the FAQ component here */}
+
+<TestimonialComponent />
 
 <section id="contact" className="content">
   <div className="container">
