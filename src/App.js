@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link as ScrollLink, Events } from 'react-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import backgroundImage from './background.jpg';  // Import the background image
+import backgroundImage from './background.jpg';
+import FAQ from './FAQ';  // Import the new FAQ component
 
 function App() {
   const heroRef = useRef(null);
@@ -68,6 +69,7 @@ function App() {
               <ul>
                 <li><ScrollLink to="hero" smooth={true} duration={500} spy={true} activeClass="active">Home</ScrollLink></li>
                 <li><ScrollLink to="about" smooth={true} duration={500} spy={true} activeClass="active" offset={isMobile ? -50 : 0}>About</ScrollLink></li>
+                <li><ScrollLink to="faq" smooth={true} duration={500} spy={true} activeClass="active" offset={isMobile ? -50 : 0}>FAQ</ScrollLink></li>
                 <li><ScrollLink to="contact" smooth={true} duration={500} spy={true} activeClass="active" offset={isMobile ? -50 : 0}>Contact</ScrollLink></li>
               </ul>
             </nav>
@@ -102,6 +104,8 @@ function App() {
           </div>
         </div>
       </section>
+
+      <FAQ />  {/* Add the FAQ component here */}
 
       <section id="contact" className="content">
         <div className="container">
