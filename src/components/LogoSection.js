@@ -6,7 +6,7 @@ const LogoSectionWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 4rem 1rem 2rem; // Added top padding
+  padding: 4rem 1rem 2rem;
   background-color: black;
   width: 100%;
 `;
@@ -14,35 +14,34 @@ const LogoSectionWrapper = styled.div`
 const Logo = styled.img`
   max-width: 200px;
   height: auto;
-  margin-bottom: 1rem; // Add space between logo and button
+  margin-bottom: 1rem;
 
   @media (max-width: 768px) {
     max-width: 250px;
   }
 `;
 
-const ScheduleButton = styled.a`
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #ccab44;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #b39339;
-  }
+const IframeWrapper = styled.div`
+  margin-top: 1rem;
 `;
 
 const LogoSection = () => {
   return (
     <LogoSectionWrapper>
       <Logo src="/logo.png" alt="Lasting Performance PT Logo" />
-      <ScheduleButton href="https://lastingperformancept.janeapp.com">
-        Book an Appointment
-      </ScheduleButton>
+      <IframeWrapper
+        dangerouslySetInnerHTML={{
+          __html: `
+            <iframe 
+              frameborder='0' 
+              height='28' 
+              scrolling='no' 
+              src='https://lastingperformancept.janeapp.com/embed/book_online' 
+              width='177'
+            ></iframe>
+          `
+        }}
+      />
     </LogoSectionWrapper>
   );
 };
