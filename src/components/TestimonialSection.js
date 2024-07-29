@@ -118,6 +118,13 @@ const TestimonialComponent = () => {
         rating: 5,
         text: "Dr. Linda Nguyen has helped improve my mobility and get rid of my back pain all together. 6 months ago I couldn’t run anymore due to back pain but since I‘ve seen Dr. Nguyen, I am now able to run and hike again. She really has changed my life...",
         reviewUrl: "https://g.co/kgs/BxcnzHG"
+      },
+      {
+        name: "D V",
+        date: new Date('2024-07-28'),
+        rating: 5,
+        text: "I’ve been a patient of Linda’s for the past year, and I can’t express enough gratitude for the incredible treatment I’ve received. As a former NFL player, I’ve faced significant back and neck injuries, and finding the right care has been challenging. Linda has been exceptional...",
+        reviewUrl: "https://g.co/kgs/Mxdq7g6"
       }
       // Add more reviews here
     ]
