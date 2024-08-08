@@ -103,7 +103,7 @@ const TestimonialComponent = () => {
   // This data would be manually updated
   const reviewData = {
     averageRating: 5.0,
-    totalReviews: 10,
+    totalReviews: 22,
     reviews: [
       {
         name: "Kevin L",

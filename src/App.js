@@ -106,7 +106,7 @@ function App() {
       <h3>Contact Us</h3>
       <address>
         Phone: <a href="tel:720-772-9090">(720) 772-9090</a><br />
-        Email: <a href="mailto:liindaanguyen@gmail.com">liindaanguyen@gmail.com</a><br />
+        Email: <a href="mailto:linda@lastingperformancept.com">linda@lastingperformancept.com</a><br />
         4151 E County Line Road, Unit B<br />
         Centennial, CO 80122<br />
         United States
