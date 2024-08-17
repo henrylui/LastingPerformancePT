@@ -32,11 +32,6 @@ const Stars = styled.div`
   font-size: 1.5rem;
 `;
 
-const ReviewCount = styled.span`
-  color: #666;
-  font-size: 0.9rem;
-`;
-
 const ReviewButton = styled.a`
   display: inline-block;
   background-color: #4285f4;
@@ -103,7 +98,6 @@ const TestimonialComponent = () => {
   // This data would be manually updated
   const reviewData = {
     averageRating: 5.0,
-    totalReviews: 22,
     reviews: [
       {
         name: "Kevin L",
@@ -142,7 +136,6 @@ const TestimonialComponent = () => {
       <RatingContainer>
         <AverageRating>{reviewData.averageRating.toFixed(1)}</AverageRating>
         <Stars>{renderStars(reviewData.averageRating)}</Stars>
-        <ReviewCount>({reviewData.totalReviews})</ReviewCount>
         <div>
           <ReviewButton href="https://www.google.com/search?client=safari&sca_esv=0dba993661c510c2&sca_upv=1&hl=en-us&sxsrf=ADLYWILbqaAqUv8H87ik2YyfFvZr2cewhA:1722034907948&q=lasting+performance+and+physical+therapy+centennial+reviews&uds=ADvngMj-y7vBN4WjOEmoytCOco0lQqOFUH2X4DFfaXB9TPPrwGI9FCJ7Ys_FTAXIqMEaesiTsTDYZWdyBQwXU9SJYQNT055fgRgkzejhB6WpQB2t5n93IAZW92x3UYqx6AiWJsoYhdQEKtgruArXW2z2uFfCL_qT79-jszpdmiYvBHSrv_-UdSX277NqHdLOTPW4a0QDzecPNjerECkigUNZp8aOi-LiJHsGR_HG_YIjIaEMrAN5IIIKHrK15yD8Am8Qh3yPsAN1iww14rGzrk3hsSis-7G4F85FhaTq1yTSH8yup4OD2uE3gMaSliqmGdAjgDLru4GwxbGTModgFFi2J16JW3XpCpApUlnJhTUTQHHLBm4QjrO4O-VNjWH2NiL6nSgyHHW8jsFhB-8Gd4oJisM4ej5lriShv8GBvqm5mRwyWNqOB4iEKo9ZWwQ-_ml9TrWLIV0ZOtGx28yU4zbyvYtBZSBjzF7TVctyPxnum_ST08pPfeg&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7ld1ub0UfdwhslqD6cnhMed9_xyx4h_ZDGAFHIFyIGuNG4AzvoiXV_AX-LAszPCmyEJnDunB1aPrH2KokxikA3lNf1Kg8BintcI4ZQV0WEv8u0boklP4bfhwECEIk8GDIVt3S6yodwvPZYSoOojo1bs7RxlG&sa=X&ictx=1&lei=2yqkZv_KOZOi0PEP2-2-sAM" target="_blank" rel="noopener noreferrer">
             Review us on Google
