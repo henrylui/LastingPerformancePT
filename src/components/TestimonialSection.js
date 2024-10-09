@@ -147,7 +147,6 @@ const TestimonialComponent = () => {
           <ReviewerInfo>
             <Avatar>{getInitialAvatar(review.name)}</Avatar>
             <ReviewerName>{review.name}</ReviewerName>
-            <ReviewDate>{formatDistanceToNow(review.date, { addSuffix: true })}</ReviewDate>
           </ReviewerInfo>
           <Stars>{renderStars(review.rating)}</Stars>
           <ReviewText>{review.text}</ReviewText>
