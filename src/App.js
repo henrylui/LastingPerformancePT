@@ -8,12 +8,48 @@ import Header from './Header';
 import LogoSection from './components/LogoSection';
 import TestimonialComponent from './components/TestimonialSection';
 
-
 const MainContent = styled.main`
   padding-top: 60px; // Adjust this value based on your header's height
   
   @media (max-width: 768px) {
     padding-top: 100px; // Increase padding for mobile to account for the two-line header
+  }
+`;
+
+const ContactSection = styled.section`
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .contact-info {
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .map-container {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .map-container {
+      margin-top: 1rem;
+    }
   }
 `;
 
@@ -86,7 +122,7 @@ function App() {
         <h3>Physical Therapy, Telehealth Physical Therapy</h3>
         <h4>Dr. Linda Nguyen, PT, DPT</h4>
         <p><em>Owner │ Running Specialist │ Functional Dry Needling Certified │ Sports and Orthopedic Physical Therapist</em></p>
-        <p>Dr. Linda Nguyen, PT, DPT, is a dedicated physical therapist with a strong academic background and a passion for empowering individuals to achieve optimal physical well-being. Graduating with honors in 2021 from the University of Colorado Anschutz Medical Campus with a Doctor of Physical Therapy degree, she built upon her foundation in Integrative Biology and Psychology from the University of Colorado at Denver, where she also graduated with honors in 2018.</p>
+        <p>Dr. Linda Nguyen, PT, DPT, is a dedicated physical therapist with a strong academic background and a passion for empowering individuals to achieve optimal physical well-being. Graduating with high academic achievements in 2021 from the University of Colorado Anschutz Medical Campus with a Doctor of Physical Therapy degree, she built upon her foundation in Integrative Biology and Psychology, from which she graduated with honors in 2018 at the University of Colorado Denver.</p>
         <p>As a first-generation Colorado native, Dr. Nguyen values diligence and consistency instilled in her from assisting her immigrant parents in managing their small business. She is committed to implementing evidence-based practices, specializing in orthopedic conditions and employing a holistic approach integrating movement, exercise, and manual therapy techniques.</p>
         <p>Dr. Nguyen has worked with a diverse range of clients, from professional athletes including NFL athletes to aspiring Olympians, leveraging her expertise to optimize performance and recovery. Beyond the clinic, Dr. Nguyen actively engages with the community through her passion for running, serving as the Founder, President, and Captain of the Cross Country club at the University of Colorado, fostering a sense of community and promoting an active lifestyle. She participates in various physical activities such as running marathons, biking, playing tennis, swimming, playing pickleball, and weightlifting, embodying the values of health and fitness she advocates for.</p>            
         <p>Eager to contribute to her community's well-being, Dr. Nguyen is dedicated to guiding individuals towards independence and optimal physical function, prioritizing patient education and establishing meaningful connections. Her dedication to physical therapy and commitment to patient wellness make her a valuable asset to those seeking personalized and effective care.</p>
@@ -100,20 +136,33 @@ function App() {
 
 <TestimonialComponent />
 
-<section id="contact" className="content">
+<ContactSection id="contact" className="content">
   <div className="container">
     <div className="contact-info">
       <h3>Contact Us</h3>
       <address>
         Phone: <a href="tel:720-772-9090">(720) 772-9090</a><br />
         Email: <a href="mailto:linda@lastingperformancept.com">linda@lastingperformancept.com</a><br />
+        Location: Colorado Fitness Headquarters <br />
         4151 E County Line Road, Unit B<br />
         Centennial, CO 80122<br />
-        United States
+        United States<br />
+        <a href="https://maps.app.goo.gl/hVKhabfL4UKP8VPK6" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
       </address>
     </div>
+    <div className="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d732.4988462128213!2d-104.94032989152596!3d39.56717583183225!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c83da65174af7%3A0xab0fb2033962c8b4!2sLasting%20Performance%20and%20Physical%20Therapy!5e0!3m2!1sen!2sus!4v1728446996617!5m2!1sen!2sus"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
   </div>
-</section>
+</ContactSection>
 
 <footer>
   <div className="container">
