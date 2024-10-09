@@ -4,7 +4,7 @@ const FAQ = () => {
   const faqData = [
     {
       question: "Where is Lasting Performance and Physical Therapy located?",
-      answer: "We are conveniently located in Colorado Fitness Headquarters at 4151 E County Line Road, Unit B, Centennial, CO 80122."
+      answer: "We are conveniently located inside Colorado Fitness Headquarters at 4151 E County Line Road, Unit B, Centennial, CO 80122."
     },
     {
       question: "Is a doctor's referral required to see a physical therapist at your clinic?",
