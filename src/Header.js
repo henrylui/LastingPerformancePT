@@ -142,7 +142,7 @@ const Header = () => {
                   duration={500} 
                   spy={true} 
                   activeClass="active"
-                  href="/"
+                  offset={-100}
                 >
                   Home
                 </NavLink>
@@ -154,7 +154,7 @@ const Header = () => {
                   duration={500} 
                   spy={true} 
                   activeClass="active"
-                  href="/about"
+                  offset={-100}
                 >
                   About
                 </NavLink>
@@ -166,7 +166,7 @@ const Header = () => {
                   duration={500} 
                   spy={true} 
                   activeClass="active"
-                  href="/faq"
+                  offset={-100}
                 >
                   FAQ
                 </NavLink>
@@ -178,7 +178,7 @@ const Header = () => {
                   duration={500} 
                   spy={true} 
                   activeClass="active"
-                  href="/contact"
+                  offset={-100}
                 >
                   Contact
                 </NavLink>

@@ -71,6 +71,8 @@
     "fixWebpackChunksIssue": false,
     "removeBlobs": true,
     "cacheAjaxRequests": true,
-    "http2PushManifest": true
+    "http2PushManifest": true,
+    "include": ["/"],
+    "crawl": false
   }
 }

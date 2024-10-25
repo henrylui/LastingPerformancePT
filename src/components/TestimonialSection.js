@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { formatDistanceToNow } from 'date-fns';
 
 // Add aria labels and roles to styled components
 const TestimonialSection = styled.section.attrs({
@@ -89,12 +88,6 @@ const Avatar = styled.div`
 
 const ReviewerName = styled.span`
   font-weight: bold;
-`;
-
-const ReviewDate = styled.span`
-  color: #666;
-  font-size: 0.8rem;
-  margin-left: 0.5rem;
 `;
 
 const ReviewText = styled.p`
