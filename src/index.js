@@ -5,13 +5,20 @@ import App from './App';
 import './index.css';
 
 const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
 
-// Wrap rendering in a setTimeout to ensure DOM is fully loaded
-setTimeout(() => {
+// Check if the content is already rendered (by react-snap)
+if (rootElement.hasChildNodes()) {
+  const root = createRoot(rootElement);
+  root.hydrate(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  const root = createRoot(rootElement);
   root.render(
     <React.StrictMode>
       <App />
     </React.StrictMode>
   );
-}, 0);
+}

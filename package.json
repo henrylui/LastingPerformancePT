@@ -25,7 +25,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -b react -d build",
-    "postbuild": "react-snap"
+    "postbuild": "react-snap",
+    "serve": "serve -s build -l 45678"
   },
   "eslintConfig": {
     "extends": [
@@ -59,6 +60,17 @@
       "collapseWhitespace": false,
       "removeComments": false
     },
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
+    "puppeteerArgs": [
+      "--no-sandbox", 
+      "--disable-setuid-sandbox"
+    ],
+    "port": 45678,
+    "puppeteerIgnoreHTTPSErrors": true,
+    "waitFor": 1000,
+    "externalServer": false,
+    "fixWebpackChunksIssue": false,
+    "removeBlobs": true,
+    "cacheAjaxRequests": true,
+    "http2PushManifest": true
   }
 }
