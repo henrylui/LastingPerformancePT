@@ -2,11 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 import { formatDistanceToNow } from 'date-fns';
 
-const TestimonialSection = styled.section`
+// Add aria labels and roles to styled components
+const TestimonialSection = styled.section.attrs({
+  role: 'region',
+  'aria-label': 'Client testimonials'
+})`
   background-color: #2a8d8d;
   padding: 2rem;
   color: white;
   text-align: center;
+
+  // Override global header styles
+  header {
+    background: transparent;
+    padding: 0;
+    position: static;
+  }
 `;
 
 const SectionTitle = styled.h2`
@@ -42,7 +53,9 @@ const ReviewButton = styled.a`
   margin-top: 0.5rem;
 `;
 
-const TestimonialCard = styled.div`
+const TestimonialCard = styled.article.attrs({
+  role: 'article'
+})`
   background-color: white;
   border-radius: 8px;
   padding: 1rem;
@@ -51,10 +64,14 @@ const TestimonialCard = styled.div`
   text-align: left;
 `;
 
-const ReviewerInfo = styled.div`
+const ReviewerInfo = styled.header`
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
+  background: transparent !important; // Override global header styles
+  padding: 0 !important;
+  position: static !important;
+  color: inherit !important;
 `;
 
 const Avatar = styled.div`
@@ -132,10 +149,14 @@ const TestimonialComponent = () => {
 
   return (
     <TestimonialSection>
-      <SectionTitle>What our clients say about us</SectionTitle>
-      <RatingContainer>
-        <AverageRating>{reviewData.averageRating.toFixed(1)}</AverageRating>
-        <Stars>{renderStars(reviewData.averageRating)}</Stars>
+      <header>
+        <SectionTitle>What our clients say about us</SectionTitle>
+      </header>
+      <RatingContainer role="complementary" aria-label="Average rating">
+        <AverageRating aria-label={`${reviewData.averageRating.toFixed(1)} out of 5 stars`}>
+          {reviewData.averageRating.toFixed(1)}
+        </AverageRating>
+        <Stars aria-hidden="true">{renderStars(reviewData.averageRating)}</Stars>
         <div>
           <ReviewButton href="https://www.google.com/search?client=safari&sca_esv=0dba993661c510c2&sca_upv=1&hl=en-us&sxsrf=ADLYWILbqaAqUv8H87ik2YyfFvZr2cewhA:1722034907948&q=lasting+performance+and+physical+therapy+centennial+reviews&uds=ADvngMj-y7vBN4WjOEmoytCOco0lQqOFUH2X4DFfaXB9TPPrwGI9FCJ7Ys_FTAXIqMEaesiTsTDYZWdyBQwXU9SJYQNT055fgRgkzejhB6WpQB2t5n93IAZW92x3UYqx6AiWJsoYhdQEKtgruArXW2z2uFfCL_qT79-jszpdmiYvBHSrv_-UdSX277NqHdLOTPW4a0QDzecPNjerECkigUNZp8aOi-LiJHsGR_HG_YIjIaEMrAN5IIIKHrK15yD8Am8Qh3yPsAN1iww14rGzrk3hsSis-7G4F85FhaTq1yTSH8yup4OD2uE3gMaSliqmGdAjgDLru4GwxbGTModgFFi2J16JW3XpCpApUlnJhTUTQHHLBm4QjrO4O-VNjWH2NiL6nSgyHHW8jsFhB-8Gd4oJisM4ej5lriShv8GBvqm5mRwyWNqOB4iEKo9ZWwQ-_ml9TrWLIV0ZOtGx28yU4zbyvYtBZSBjzF7TVctyPxnum_ST08pPfeg&si=ACC90nwjPmqJHrCEt6ewASzksVFQDX8zco_7MgBaIawvaF4-7ld1ub0UfdwhslqD6cnhMed9_xyx4h_ZDGAFHIFyIGuNG4AzvoiXV_AX-LAszPCmyEJnDunB1aPrH2KokxikA3lNf1Kg8BintcI4ZQV0WEv8u0boklP4bfhwECEIk8GDIVt3S6yodwvPZYSoOojo1bs7RxlG&sa=X&ictx=1&lei=2yqkZv_KOZOi0PEP2-2-sAM" target="_blank" rel="noopener noreferrer">
             Review us on Google
@@ -143,12 +164,14 @@ const TestimonialComponent = () => {
         </div>
       </RatingContainer>
       {reviewData.reviews.map((review, index) => (
-        <TestimonialCard key={index}>
+        <TestimonialCard key={index} aria-label={`Review by ${review.name}`}>
           <ReviewerInfo>
-            <Avatar>{getInitialAvatar(review.name)}</Avatar>
+            <Avatar aria-hidden="true">{getInitialAvatar(review.name)}</Avatar>
             <ReviewerName>{review.name}</ReviewerName>
           </ReviewerInfo>
-          <Stars>{renderStars(review.rating)}</Stars>
+          <Stars aria-label={`${review.rating} out of 5 stars`}>
+            {renderStars(review.rating)}
+          </Stars>
           <ReviewText>{review.text}</ReviewText>
           <ReadMore href={review.reviewUrl} target="_blank" rel="noopener noreferrer">Read more</ReadMore>
           <div>
