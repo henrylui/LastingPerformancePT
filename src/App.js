@@ -118,12 +118,16 @@ function App() {
         <div className="container">
           <div className="about-content">
             <figure>
-              <LazyLoadImage
-                alt="Dr. Linda Nguyen"
-                src="/linda.png"
-                effect="blur"
-                className="about-image"
-              />
+              <picture>
+                <source srcSet="/linda.avif" type="image/avif" />
+                <source srcSet="/linda.webp" type="image/webp" />
+                <LazyLoadImage
+                  alt="Dr. Linda Nguyen"
+                  src="/linda.png"
+                  effect="blur"
+                  className="about-image"
+                />
+              </picture>
             </figure>
             <div className="about-text">
               <h2>About Dr. Linda Nguyen</h2>

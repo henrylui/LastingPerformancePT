@@ -11,6 +11,11 @@ const LogoSectionWrapper = styled.div`
   width: 100%;
 `;
 
+const LogoPicture = styled.picture`
+  display: flex;
+  justify-content: center;
+`;
+
 const Logo = styled.img`
   max-width: 200px;
   height: auto;
@@ -40,7 +45,10 @@ const BookingButton = styled.a`
 const LogoSection = () => {
   return (
     <LogoSectionWrapper id="home">
-      <Logo src="/logo.png" alt="Lasting Performance PT Logo" />
+      <LogoPicture>
+        <source srcSet="/logo.avif" type="image/avif" />
+        <Logo src="/logo.png" alt="Lasting Performance PT Logo" />
+      </LogoPicture>
       <BookingButton 
         href="https://lastingperformancept.janeapp.com"
         target="_blank"
