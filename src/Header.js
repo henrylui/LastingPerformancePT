@@ -109,12 +109,6 @@ const NavLink = styled(ScrollLink)`
   }
 `;
 
-// Add a new styled component for the anchor wrapper
-const NavAnchor = styled.a`
-  text-decoration: none;
-  color: inherit;
-`;
-
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -142,24 +136,52 @@ const Header = () => {
           <NavContainer>
             <NavList>
               <NavItem>
-                <NavAnchor href="/">
-                  <NavLink to="home" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
-                </NavAnchor>
+                <NavLink 
+                  to="home" 
+                  smooth={true} 
+                  duration={500} 
+                  spy={true} 
+                  activeClass="active"
+                  href="/"
+                >
+                  Home
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavAnchor href="/about">
-                  <NavLink to="about" smooth={true} duration={500} spy={true} activeClass="active">About</NavLink>
-                </NavAnchor>
+                <NavLink 
+                  to="about" 
+                  smooth={true} 
+                  duration={500} 
+                  spy={true} 
+                  activeClass="active"
+                  href="/about"
+                >
+                  About
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavAnchor href="/faq">
-                  <NavLink to="faq" smooth={true} duration={500} spy={true} activeClass="active">FAQ</NavLink>
-                </NavAnchor>
+                <NavLink 
+                  to="faq" 
+                  smooth={true} 
+                  duration={500} 
+                  spy={true} 
+                  activeClass="active"
+                  href="/faq"
+                >
+                  FAQ
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavAnchor href="/contact">
-                  <NavLink to="contact" smooth={true} duration={500} spy={true} activeClass="active">Contact</NavLink>
-                </NavAnchor>
+                <NavLink 
+                  to="contact" 
+                  smooth={true} 
+                  duration={500} 
+                  spy={true} 
+                  activeClass="active"
+                  href="/contact"
+                >
+                  Contact
+                </NavLink>
               </NavItem>
             </NavList>
           </NavContainer>
