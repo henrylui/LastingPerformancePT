@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Events, scrollSpy } from 'react-scroll';
+import { Link as ScrollLink, Events } from 'react-scroll';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import styled from 'styled-components';
@@ -18,7 +18,10 @@ const MainContent = styled.main.attrs({
   }
 `;
 
-const ContactSection = styled.section`
+const ContactSection = styled.section.attrs({
+  role: 'region',
+  'aria-label': 'Contact information'
+})`
   .container {
     display: flex;
     justify-content: center;
@@ -58,7 +61,6 @@ const ContactSection = styled.section`
 function App() {
   const heroRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const [isContentLoaded, setIsContentLoaded] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -66,9 +68,6 @@ function App() {
     };
 
     window.addEventListener('resize', handleResize);
-
-    // Initialize scrollSpy
-    scrollSpy.update();
 
     // Set up react-scroll events
     Events.scrollEvent.register('begin', function() {
@@ -81,8 +80,6 @@ function App() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      
-      // Update the cleanup
       Events.scrollEvent.remove('begin');
       Events.scrollEvent.remove('end');
     };
@@ -105,11 +102,6 @@ function App() {
     });
 
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    // Ensure content is loaded after component mounts
-    setIsContentLoaded(true);
   }, []);
 
   return (
@@ -157,6 +149,7 @@ function App() {
 
       <FAQ />
       <TestimonialComponent />
+
       <ContactSection id="contact" className="content">
         <div className="container">
           <div className="contact-info">
@@ -173,6 +166,7 @@ function App() {
           </div>
           <div className="map-container">
             <iframe
+            title="Office Location Map"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d732.4988462128213!2d-104.94032989152596!3d39.56717583183225!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c83da65174af7%3A0xab0fb2033962c8b4!2sLasting%20Performance%20and%20Physical%20Therapy!5e0!3m2!1sen!2sus!4v1728446996617!5m2!1sen!2sus"
               width="100%"
               height="100%"
