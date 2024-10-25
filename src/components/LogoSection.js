@@ -21,27 +21,33 @@ const Logo = styled.img`
   }
 `;
 
-const IframeWrapper = styled.div`
+const BookingButton = styled.a`
+  display: inline-block;
+  background: #ccab44;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
   margin-top: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background: #b39339;
+  }
 `;
 
 const LogoSection = () => {
   return (
     <LogoSectionWrapper>
       <Logo src="/logo.png" alt="Lasting Performance PT Logo" />
-      <IframeWrapper
-        dangerouslySetInnerHTML={{
-          __html: `
-            <iframe 
-              frameborder='0' 
-              height='28' 
-              scrolling='no' 
-              src='https://lastingperformancept.janeapp.com/embed/book_online' 
-              width='177'
-            ></iframe>
-          `
-        }}
-      />
+      <BookingButton 
+        href="https://lastingperformancept.janeapp.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Book an Appointment
+      </BookingButton>
     </LogoSectionWrapper>
   );
 };

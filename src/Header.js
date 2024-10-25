@@ -109,6 +109,12 @@ const NavLink = styled(ScrollLink)`
   }
 `;
 
+// Add a new styled component for the anchor wrapper
+const NavAnchor = styled.a`
+  text-decoration: none;
+  color: inherit;
+`;
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -136,16 +142,24 @@ const Header = () => {
           <NavContainer>
             <NavList>
               <NavItem>
-                <NavLink to="hero" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
+                <NavAnchor href="/">
+                  <NavLink to="hero" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
+                </NavAnchor>
               </NavItem>
               <NavItem>
-                <NavLink to="about" smooth={true} duration={500} spy={true} activeClass="active">About</NavLink>
+                <NavAnchor href="/about">
+                  <NavLink to="about" smooth={true} duration={500} spy={true} activeClass="active">About</NavLink>
+                </NavAnchor>
               </NavItem>
               <NavItem>
-                <NavLink to="faq" smooth={true} duration={500} spy={true} activeClass="active">FAQ</NavLink>
+                <NavAnchor href="/faq">
+                  <NavLink to="faq" smooth={true} duration={500} spy={true} activeClass="active">FAQ</NavLink>
+                </NavAnchor>
               </NavItem>
               <NavItem>
-                <NavLink to="contact" smooth={true} duration={500} spy={true} activeClass="active">Contact</NavLink>
+                <NavAnchor href="/contact">
+                  <NavLink to="contact" smooth={true} duration={500} spy={true} activeClass="active">Contact</NavLink>
+                </NavAnchor>
               </NavItem>
             </NavList>
           </NavContainer>

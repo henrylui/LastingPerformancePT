@@ -173,7 +173,14 @@ const TestimonialComponent = () => {
             {renderStars(review.rating)}
           </Stars>
           <ReviewText>{review.text}</ReviewText>
-          <ReadMore href={review.reviewUrl} target="_blank" rel="noopener noreferrer">Read more</ReadMore>
+          <ReadMore 
+            href={review.reviewUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            aria-label={`Read full review by ${review.name} on Google`}
+          >
+            Read full review on Google
+          </ReadMore>
           <div>
             <GoogleLogo src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" />
           </div>
