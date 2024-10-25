@@ -52,12 +52,13 @@
   },
   "reactSnap": {
     "skipThirdPartyRequests": true,
-    "inlineCss": true,
+    "inlineCss": false,
     "source": "build",
     "destination": "build",
     "minifyHtml": {
       "collapseWhitespace": false,
       "removeComments": false
-    }
+    },
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   }
 }
