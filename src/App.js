@@ -127,7 +127,7 @@ function App() {
                   effect="blur"
                   className="about-image"
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                   placeholderSrc="/linda.avif"
                 />
               </picture>
