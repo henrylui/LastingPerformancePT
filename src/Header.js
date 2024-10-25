@@ -22,8 +22,8 @@ const HeaderWrapper = styled.header`
   right: 0;
   z-index: 1000;
   transition: background-color 0.3s ease;
-  background-color: ${props => props.isScrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent'};
-  backdrop-filter: ${props => props.isScrolled ? 'blur(5px)' : 'none'};
+  background-color: ${props => props.$isScrolled ? 'rgba(0, 0, 0, 0.8)' : 'transparent'};
+  backdrop-filter: ${props => props.$isScrolled ? 'blur(5px)' : 'none'};
   width: 100%;
 `;
 
@@ -128,7 +128,7 @@ const Header = () => {
   return (
     <>
       <GlobalStyle />
-      <HeaderWrapper isScrolled={isScrolled}>
+      <HeaderWrapper $isScrolled={isScrolled}>
         <HeaderContent>
           <CompanyName>
             Lasting Performance and Physical Therapy
