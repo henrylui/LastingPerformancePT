@@ -126,6 +126,9 @@ function App() {
                   src="/linda.png"
                   effect="blur"
                   className="about-image"
+                  loading="eager"
+                  fetchPriority="high"
+                  placeholderSrc="/linda.avif"
                 />
               </picture>
             </figure>

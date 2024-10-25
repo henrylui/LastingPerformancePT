@@ -23,6 +23,24 @@
     
     <!-- Move the font loading here, after the preconnect -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Preload main image -->
+    <link 
+      rel="preload" 
+      as="image" 
+      href="/linda.avif" 
+      type="image/avif" 
+      fetchpriority="high"
+    >
+    
+    <!-- Preload logo -->
+    <link 
+      rel="preload" 
+      as="image" 
+      href="/logo.avif" 
+      type="image/avif" 
+      fetchpriority="high"
+    >
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
