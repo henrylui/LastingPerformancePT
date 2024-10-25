@@ -1,71 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-
-const ContactSectionWrapper = styled.section.attrs({
-  role: 'region',
-  'aria-label': 'Contact information'
-})`
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-  }
-
-  .contact-info {
-    text-align: left;
-    max-width: 400px;
-    width: 100%;
-  }
-
-  .map-container {
-    width: 100%;
-    max-width: 400px;
-    height: 300px;
-    background: #f5f5f5;
-    position: relative;
-  }
-
-  h3 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .map-container {
-      margin-top: 1rem;
-    }
-  }
-
-  iframe {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  iframe.loaded {
-    opacity: 1;
-  }
-
-  iframe.loading {
-    opacity: 0;
-  }
-`;
+import React from 'react';
 
 const ContactSection = () => {
-  const [isMapLoaded, setIsMapLoaded] = useState(false);
-
-  useEffect(() => {
-    // Remove the timeout and use the iframe's onLoad event instead
-    setIsMapLoaded(true);
-  }, []);
-
+  
   return (
-    <ContactSectionWrapper id="contact" className="content">
+    <section id="contact" className="content">
       <div className="container">
         <div className="contact-info">
           <h3>Contact Us</h3>
@@ -88,13 +26,11 @@ const ContactSection = () => {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            onLoad={() => setIsMapLoaded(true)}
-            className={isMapLoaded ? 'loaded' : 'loading'}
+            referrerPolicy="no-referrer-when-downgrade "
           />
         </figure>
       </div>
-    </ContactSectionWrapper>
+    </section>
   );
 };
 

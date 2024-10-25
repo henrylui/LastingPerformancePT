@@ -7,7 +7,6 @@ import FAQ from './components/FAQ';
 import Header from './Header';
 import LogoSection from './components/LogoSection';
 import TestimonialComponent from './components/TestimonialSection';
-import ContactSection from './components/ContactSection';
 
 const MainContent = styled.main.attrs({
   'aria-label': 'Main content'
@@ -16,6 +15,43 @@ const MainContent = styled.main.attrs({
   
   @media (max-width: 768px) {
     padding-top: 100px; // Increase padding for mobile to account for the two-line header
+  }
+`;
+
+const ContactSection = styled.section`
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .contact-info {
+    text-align: left;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .map-container {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .map-container {
+      margin-top: 1rem;
+    }
   }
 `;
 
@@ -121,7 +157,33 @@ function App() {
 
       <FAQ />
       <TestimonialComponent />
-      <ContactSection />
+      <ContactSection id="contact" className="content">
+        <div className="container">
+          <div className="contact-info">
+            <h3>Contact Us</h3>
+            <address>
+              Phone: <a href="tel:720-772-9090">(720) 772-9090</a><br />
+              Email: <a href="mailto:linda@lastingperformancept.com">linda@lastingperformancept.com</a><br />
+              Location: Colorado Fitness Headquarters <br />
+              4151 E County Line Road, Unit B<br />
+              Centennial, CO 80122<br />
+              United States<br />
+              <a href="https://maps.app.goo.gl/hVKhabfL4UKP8VPK6" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+            </address>
+          </div>
+          <div className="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d732.4988462128213!2d-104.94032989152596!3d39.56717583183225!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c83da65174af7%3A0xab0fb2033962c8b4!2sLasting%20Performance%20and%20Physical%20Therapy!5e0!3m2!1sen!2sus!4v1728446996617!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </ContactSection>
 
       <footer role="contentinfo">
         <div className="container">
