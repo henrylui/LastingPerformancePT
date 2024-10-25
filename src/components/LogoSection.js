@@ -39,7 +39,7 @@ const BookingButton = styled.a`
 
 const LogoSection = () => {
   return (
-    <LogoSectionWrapper>
+    <LogoSectionWrapper id="home">
       <Logo src="/logo.png" alt="Lasting Performance PT Logo" />
       <BookingButton 
         href="https://lastingperformancept.janeapp.com"

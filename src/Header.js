@@ -143,7 +143,7 @@ const Header = () => {
             <NavList>
               <NavItem>
                 <NavAnchor href="/">
-                  <NavLink to="hero" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
+                  <NavLink to="home" smooth={true} duration={500} spy={true} activeClass="active">Home</NavLink>
                 </NavAnchor>
               </NavItem>
               <NavItem>
