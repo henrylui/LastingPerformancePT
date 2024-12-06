@@ -7,6 +7,7 @@ import FAQ from './components/FAQ';
 import Header from './Header';
 import LogoSection from './components/LogoSection';
 import TestimonialComponent from './components/TestimonialSection';
+import MobileActionBar from './components/MobileActionBar';
 
 const MainContent = styled.main.attrs({
   'aria-label': 'Main content'
@@ -189,7 +190,7 @@ function App() {
         </div>
       </footer>
 
-      <nav className="fab-container" aria-label="Quick actions">
+      {/* <nav className="fab-container" aria-label="Quick actions">
         <a 
           href="https://lastingperformancept.janeapp.com" 
           className="fab" 
@@ -197,8 +198,8 @@ function App() {
         >
           <span aria-hidden="true">+</span>
         </a>
-      </nav>
-      
+      </nav> */}
+      <MobileActionBar />
     </div>
   );
 }
